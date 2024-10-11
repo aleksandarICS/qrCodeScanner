@@ -38,7 +38,6 @@ $(document).ready(() => {
 
                 console.log(decodedResult);
 
-                decodedText = "http://google.com?sadajsdkajsdhaksjdhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
 
                 if(decodedText.substring(0, 4) == 'http'){
                     chunkSize = 50;
