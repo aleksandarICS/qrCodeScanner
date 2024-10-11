@@ -1,34 +1,33 @@
 $(document).ready(() => {
     const html5QrCode = new Html5Qrcode("qr-reader");
 
-
-    // V2
     function scanQrCode() {
         html5QrCode.start(
             { facingMode: "environment" },
             {
-                fps:10, 
-                qrbox: 250, 
+                fps: 10,
+                qrbox: 250,
+                facingMode: { exact: "environment" }, 
+                aspectRatio: 1.0
             },
             (decodedText, decodedResult) => {
-
                 console.log(decodedResult);
-                if(decodedText.substring(0, 4) == 'http'){
-                    chunkSize = 50;
-                    let formattedLink = '';
+                let formattedText = decodedText;
+
+                if (decodedText.startsWith('http')) {
+                    const chunkSize = 50;
+                    formattedText = '';
                     for (let i = 0; i < decodedText.length; i += chunkSize) {
-                        formattedLink += decodedText.slice(i, i + chunkSize) + '<br/>';
+                        formattedText += decodedText.slice(i, i + chunkSize) + '<br/>';
                     }
-                    
-                    $("#result").html(`QR code: <a href="${decodedText}" target="_blank">${formattedLink}</a>`);
-                }else{
+                    $("#result").html(`QR code: <a href="${decodedText}" target="_blank">${formattedText}</a>`);
+                } else {
                     $("#result").html(`QR code: ${decodedText}`);
                 }
-
-
             })
             .catch(err => {
                 console.error(`Error starting QR Code scanner: ${err}`);
+                alert("Unable to access camera. Please check permissions.");
             });
     }
 
