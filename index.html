@@ -11,26 +11,14 @@
 <body>
     <main>
         <h1>QR Code Scanning App</h1>
-        <button id="scanButton">Scan your QR code</button>
-        <div id="qr-reader" style="width: 500px;"></div>
-        <div id="result"></div>
+        <div class="buttonDiv">
+            <button id="scanButton">Scan your QR code</button>
+        </div>
+        <div class="scanner">
+            <div id="qr-reader" style="width: 100%;"></div>
+            <div id="result"></div>
+        </div>
     </main>
     <script src="main.js"></script>
-
-    <script type="text/javascript">
-    //     function onScanSuccess(qrCodeMessage) {
-    //         console.log(qrCodeMessage);
-
-    //             //     scanner.clear();
-    // //     document.getElementById('qr-reader').remove()
-            
-    //     }
-    //     function onScanError(errorMessage) {
-    //       //handle scan error
-    //     }
-    //     var html5QrcodeScanner = new Html5QrcodeScanner(
-    //         "qr-reader", { fps: 10, qrbox: 250 });
-    //     html5QrcodeScanner.render(onScanSuccess, onScanError);
-        </script>
 </body>
 </html>

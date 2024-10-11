@@ -7,4 +7,38 @@
 body{
     background-color: #444;
     color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+main{
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1{
+    text-align: center;
+}
+
+.buttonDiv{
+    margin: 20px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center
+}
+
+#qr-reader{
+    margin: 50px 0;
+}
+.scanner{
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }

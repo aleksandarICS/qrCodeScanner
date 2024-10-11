@@ -3,6 +3,7 @@ $(document).ready(() => {
 
 
 
+    // V1
 
     // var html5QrcodeScanner = new Html5QrcodeScanner(
     //     "qr-reader", { fps: 20, qrbox: 250 });
@@ -25,22 +26,20 @@ $(document).ready(() => {
 
 
 
-
+    // V2
     function scanQrCode() {
         html5QrCode.start(
             { facingMode: "environment" },
             {
                 fps: 10, 
                 qrbox: 250, 
-                // formatsToSupport: [Html5Qrcode.SCAN_FORMATS.QR_CODE, Html5Qrcode.SCAN_FORMATS.EAN_13]
             },
             (decodedText, decodedResult) => {
-                // Ovo se poziva kada je QR kod skeniran
-                console.log(`Dectected QR Code: ${decodedText}`);
-                $("#results").text(`Detected: ${decodedText}`);
+
+                console.log(decodedResult);
+                $("#result").text(`QR code: ${decodedText}`);
             },
             (errorMessage) => {
-                // Ovo se poziva kada je greška tokom skeniranja
                 console.log(`Error scanning: ${errorMessage}`);
             })
             .catch(err => {
