@@ -1,65 +1,65 @@
 $(document).ready(() => {
-    const html5QrCode = new Html5Qrcode("qr-reader");
+    // const html5QrCode = new Html5Qrcode("qr-reader");
 
 
 
     // V1
 
-    // var html5QrcodeScanner = new Html5QrcodeScanner(
-    //     "qr-reader", { fps: 20, qrbox: 250 });
-    // html5QrcodeScanner.render(onScanSuccess, onScanError);
+    var html5QrcodeScanner = new Html5QrcodeScanner(
+        "qr-reader", { fps: 20, qrbox: 250 });
+    html5QrcodeScanner.render(onScanSuccess, onScanError);
 
 
-    // function onScanSuccess(qrCodeMessage) {
-    //     console.log(qrCodeMessage);
-
-    //     // document.getElementById('qr-reader').style.display= 'none'        
-    //     // scanner.clear();
+    function onScanSuccess(qrCodeMessage) {
+        console.log(qrCodeMessage);
+        $("#result").html(`QR code: <a href="${qrCodeMessage}" target="_blank">${qrCodeMessage}</a>`);
+        // document.getElementById('qr-reader').style.display= 'none'        
+        // scanner.clear();
         
-    // }
-    // function onScanError(errorMessage) {
-    //   //handle scan error
-    //   console.log(errorMessage);
+    }
+    function onScanError(errorMessage) {
+      //handle scan error
+      console.log(errorMessage);
       
-    // }
+    }
 
 
 
 
     // V2
-    function scanQrCode() {
-        html5QrCode.start(
-            { facingMode: "environment" },
-            {
-                fps: 5, 
-                qrbox: 250, 
-            },
-            (decodedText, decodedResult) => {
+    // function scanQrCode() {
+    //     html5QrCode.start(
+    //         { facingMode: "environment" },
+    //         {
+    //             fps: 5, 
+    //             qrbox: 250, 
+    //         },
+    //         (decodedText, decodedResult) => {
 
-                console.log(decodedResult);
+    //             console.log(decodedResult);
 
 
-                if(decodedText.substring(0, 4) == 'http'){
-                    chunkSize = 50;
-                    let formattedLink = '';
-                    for (let i = 0; i < decodedText.length; i += chunkSize) {
-                        formattedLink += decodedText.slice(i, i + chunkSize) + '<br/>';
-                    }
-                    console.log(formattedLink);
+    //             if(decodedText.substring(0, 4) == 'http'){
+    //                 chunkSize = 50;
+    //                 let formattedLink = '';
+    //                 for (let i = 0; i < decodedText.length; i += chunkSize) {
+    //                     formattedLink += decodedText.slice(i, i + chunkSize) + '<br/>';
+    //                 }
+    //                 console.log(formattedLink);
                     
-                    $("#result").html(`QR code: <a href="${decodedText}" target="_blank">${formattedLink}</a>`);
-                }else{
-                    $("#result").html(`QR code: ${decodedText}`);
-                }
+    //                 $("#result").html(`QR code: <a href="${decodedText}" target="_blank">${formattedLink}</a>`);
+    //             }else{
+    //                 $("#result").html(`QR code: ${decodedText}`);
+    //             }
 
 
-            })
-            .catch(err => {
-                console.error(`Error starting QR Code scanner: ${err}`);
-            });
-    }
+    //         })
+    //         .catch(err => {
+    //             console.error(`Error starting QR Code scanner: ${err}`);
+    //         });
+    // }
 
-    $("#scanButton").on("click", scanQrCode);
+    // $("#scanButton").on("click", scanQrCode);
 });
 
 
