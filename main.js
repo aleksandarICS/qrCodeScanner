@@ -13,16 +13,12 @@ $(document).ready(() => {
             (decodedText, decodedResult) => {
 
                 console.log(decodedResult);
-
-                decodedText = "http://google.com?sadajsdkajsdhaksjdhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
-
                 if(decodedText.substring(0, 4) == 'http'){
-                    chunkSize = 40;
+                    chunkSize = 50;
                     let formattedLink = '';
                     for (let i = 0; i < decodedText.length; i += chunkSize) {
                         formattedLink += decodedText.slice(i, i + chunkSize) + '<br/>';
                     }
-                    console.log(formattedLink);
                     
                     $("#result").html(`QR code: <a href="${decodedText}" target="_blank">${formattedLink}</a>`);
                 }else{
