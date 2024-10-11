@@ -43,6 +43,10 @@ h1{
     flex-direction: column;
 }
 
+a{
+    color: #56c8e4;
+}
+
 @media (max-width: 600px) {
     .scanner{
         width: 400px;

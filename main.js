@@ -37,10 +37,14 @@ $(document).ready(() => {
             (decodedText, decodedResult) => {
 
                 console.log(decodedResult);
-                $("#result").text(`QR code: ${decodedText}`);
-            },
-            (errorMessage) => {
-                console.log(`Error scanning: ${errorMessage}`);
+
+                if(decodedText.substring(0, 4) == 'http'){
+                    $("#result").html(`QR code: <a href="${decodedText}" target="_blank">${decodedText}</a>`);
+                }else{
+                    $("#result").html(`QR code: ${decodedText}`);
+                }
+
+
             })
             .catch(err => {
                 console.error(`Error starting QR Code scanner: ${err}`);
