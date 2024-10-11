@@ -7,7 +7,7 @@ $(document).ready(() => {
         html5QrCode.start(
             { facingMode: "environment" },
             {
-                fps:105, 
+                fps:10, 
                 qrbox: 250, 
             },
             (decodedText, decodedResult) => {
